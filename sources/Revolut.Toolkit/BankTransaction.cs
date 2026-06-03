@@ -7,7 +7,7 @@ public record class BankTransaction
 {
     public TransactionType Type { get; set; } = null!;
 
-    public string Product { get; set; }
+    public TransactionProduct Product { get; set; } = null!;
 
     public DateTime StartedDate { get; set; }
 

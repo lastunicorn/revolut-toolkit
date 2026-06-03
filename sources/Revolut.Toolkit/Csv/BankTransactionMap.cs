@@ -10,7 +10,9 @@ internal sealed class BankTransactionMap : ClassMap<BankTransaction>
             .Name("Type")
             .TypeConverter<TransactionTypeConverter>();
 
-        Map(x => x.Product).Name("Product");
+        Map(x => x.Product)
+            .Name("Product")
+            .TypeConverter<TransactionProductConverter>();
 
         Map(x => x.StartedDate)
             .Name("Started Date")
