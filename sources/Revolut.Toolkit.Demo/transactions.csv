@@ -1,0 +1,11 @@
+Type,Product,Started Date,Completed Date,Description,Amount,Fee,Currency,State,Balance
+Deposit,Current,2026-05-01 09:00:00,2026-05-01 09:00:02,Salary payment from ACME CORP,3500.00,0.00,RON,COMPLETED,3500.00
+Card Payment,Current,2026-05-01 12:15:11,2026-05-01 12:15:15,Coffee Shop Bucharest,-18.50,0.00,RON,COMPLETED,3481.50
+Transfer,Current,2026-05-02 08:45:32,2026-05-02 08:45:35,To RON Savings account,-1000.00,0.00,RON,COMPLETED,2481.50
+Transfer,Deposit,2026-05-02 08:45:32,2026-05-02 08:45:35,From Current account,1000.00,0.00,RON,COMPLETED,1000.00
+Interest,Deposit,2026-05-03 05:01:00,2026-05-03 05:01:00,"Net interest paid to ""Savings account"" for May 3, 2026",0.07,0.00,RON,COMPLETED,1000.07
+Card Payment,Current,2026-05-03 18:30:04,2026-05-03 18:30:08,Supermarket Carrefour,-126.40,0.00,RON,COMPLETED,2355.10
+Cash Withdrawal,Current,2026-05-04 10:10:10,2026-05-04 10:10:16,ATM withdrawal downtown,-200.00,2.50,RON,COMPLETED,2152.60
+Transfer,Current,2026-05-05 14:20:00,2026-05-05 14:20:03,Transfer from MATEI POPESCU,450.00,0.00,RON,COMPLETED,2602.60
+Card Payment,Current,2026-05-06 20:05:44,2026-05-06 20:05:49,Online subscription service,-49.99,0.00,RON,COMPLETED,2552.61
+Transfer,Current,2026-05-07 07:55:20,2026-05-07 07:55:24,To RON Savings account,-500.00,0.00,RON,COMPLETED,2052.61
