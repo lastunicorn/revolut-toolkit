@@ -6,7 +6,9 @@ internal sealed class BankTransactionMap : ClassMap<BankTransaction>
 {
     public BankTransactionMap()
     {
-        Map(x => x.Type).Name("Type");
+        Map(x => x.Type)
+            .Name("Type")
+            .TypeConverter<TransactionTypeConverter>();
 
         Map(x => x.Product).Name("Product");
 
@@ -22,7 +24,7 @@ internal sealed class BankTransactionMap : ClassMap<BankTransaction>
 
         Map(x => x.Amount).Name("Amount");
 
-        Map(x => x.Balance).Name("Fee");
+        Map(x => x.Fee).Name("Fee");
 
         Map(x => x.Currency).Name("Currency");
 

@@ -5,7 +5,7 @@ namespace DustInTheWind.Revolut.Toolkit;
 /// </summary>
 public record class BankTransaction
 {
-    public string Type { get; set; }
+    public TransactionType Type { get; set; } = null!;
 
     public string Product { get; set; }
 
