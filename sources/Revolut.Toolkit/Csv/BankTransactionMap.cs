@@ -28,7 +28,9 @@ internal sealed class BankTransactionMap : ClassMap<BankTransaction>
 
         Map(x => x.Fee).Name("Fee");
 
-        Map(x => x.Currency).Name("Currency");
+        Map(x => x.Currency)
+            .Name("Currency")
+            .TypeConverter<TransactionCurrencyConverter>();
 
         Map(x => x.State).Name("State");
 

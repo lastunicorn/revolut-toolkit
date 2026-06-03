@@ -19,7 +19,7 @@ public record class BankTransaction
 
     public decimal Fee { get; set; }
 
-    public string Currency { get; set; }
+    public TransactionCurrency Currency { get; set; } = null!;
 
     public string State { get; set; }
 
