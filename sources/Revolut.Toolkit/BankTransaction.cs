@@ -5,9 +5,9 @@ namespace DustInTheWind.Revolut.Toolkit;
 /// </summary>
 public record class BankTransaction
 {
-    public TransactionType Type { get; set; } = null!;
+    public TransactionType Type { get; set; }
 
-    public TransactionProduct Product { get; set; } = null!;
+    public TransactionProduct Product { get; set; }
 
     public DateTime StartedDate { get; set; }
 
@@ -19,9 +19,9 @@ public record class BankTransaction
 
     public decimal Fee { get; set; }
 
-    public TransactionCurrency Currency { get; set; } = null!;
+    public TransactionCurrency Currency { get; set; }
 
-    public string State { get; set; }
+    public TransactionState State { get; set; }
 
     public decimal Balance { get; set; }
 }

@@ -44,9 +44,9 @@ internal static class Program
         dataGrid.Columns.Add("Description");
         dataGrid.Columns.Add("Amount", HorizontalAlignment.Right);
         dataGrid.Columns.Add("Fee", HorizontalAlignment.Right);
-        dataGrid.Columns.Add("Currency");
+        dataGrid.Columns.Add("Currency", HorizontalAlignment.Right);
         dataGrid.Columns.Add("State");
-        dataGrid.Columns.Add("Balance");
+        dataGrid.Columns.Add("Balance", HorizontalAlignment.Right);
 
         foreach (BankTransaction transaction in document.Transactions)
         {
