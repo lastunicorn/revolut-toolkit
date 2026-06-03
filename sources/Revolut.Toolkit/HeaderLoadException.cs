@@ -2,9 +2,8 @@ namespace DustInTheWind.Revolut.Toolkit;
 
 public class HeaderLoadException : DocumentLoadException
 {
-    public HeaderLoadException(Exception innerException)
-        : base("The CSV header is invalid.", innerException)
-    {
-    }
+	public HeaderLoadException(Exception innerException)
+		: base("The CSV header is invalid.", innerException)
+	{
+	}
 }
-
