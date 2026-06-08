@@ -1,6 +1,12 @@
 Revolut Toolkit
 ================================================================================
 
+v1.1.0
+--------------------------------------------------------------------------------
+[change] Renamed TransactionsDocument to StatementDocument.
+[bugfix] Fixed stream access fail when StatementDocument was loaded async.
+
+
 v1.0.0
 --------------------------------------------------------------------------------
 [new] Added TransactionsDocument to parse csv transaction files.

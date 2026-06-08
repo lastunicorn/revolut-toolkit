@@ -47,9 +47,9 @@ The `TransactionsDocument` class provides several methods to parse and load a CS
 **From a file path:**
 
 ```csharp
-TransactionsDocument document = TransactionsDocument.LoadFile("transactions.csv");
+StatementDocument document = StatementDocument.LoadFile("statement.csv");
 
-foreach (BankTransaction transaction in document.Transactions)
+foreach (BankTransaction transaction in document)
 {
     ...
 }

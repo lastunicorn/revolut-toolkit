@@ -7,11 +7,11 @@ internal static class Program
 {
 	public static async Task Main(string[] args)
 	{
-		const string fileName = "transactions.csv";
+		const string fileName = "statement.csv";
 
 		try
 		{
-			TransactionsDocument document = await TransactionsDocument.LoadFromFileAsync(fileName);
+			StatementDocument document = await StatementDocument.LoadFromFileAsync(fileName);
 
 			DataGrid dataGrid = Display(document);
 			dataGrid.Display();
@@ -28,13 +28,13 @@ internal static class Program
 		}
 	}
 
-	private static DataGrid Display(TransactionsDocument document)
+	private static DataGrid Display(StatementDocument document)
 	{
 		DataGrid dataGrid = new()
 		{
-			Title = $"Transactions",
+			Title = "Transactions",
 			BorderTemplate = BorderTemplate.PlusMinusBorderTemplate,
-			Footer = $"Count: {document.Transactions.Count}"
+			Footer = $"Count: {document.Count}"
 		};
 
 		dataGrid.Columns.Add("Type");
@@ -48,7 +48,7 @@ internal static class Program
 		dataGrid.Columns.Add("State");
 		dataGrid.Columns.Add("Balance", HorizontalAlignment.Right);
 
-		foreach (BankTransaction transaction in document.Transactions)
+		foreach (BankTransaction transaction in document)
 		{
 			dataGrid.Rows.Add(
 				transaction.Type,

@@ -6,13 +6,13 @@ using MissingFieldException = CsvHelper.MissingFieldException;
 
 namespace DustInTheWind.Revolut.Toolkit.Csv;
 
-internal class TransactionsCsvDocument
+internal class CsvStatementDocument
 {
 	private readonly CsvReader csvReader;
 	private bool classMapRegistered;
 	private CsvDocumentReadState state;
 
-	public TransactionsCsvDocument(TextReader textReader)
+	public CsvStatementDocument(TextReader textReader)
 	{
 		if (textReader == null) throw new ArgumentNullException(nameof(textReader));
 

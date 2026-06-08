@@ -1,22 +1,21 @@
-﻿using DustInTheWind.Revolut.Toolkit.Csv;
+﻿using System.Collections.ObjectModel;
+using DustInTheWind.Revolut.Toolkit.Csv;
 
 namespace DustInTheWind.Revolut.Toolkit;
 
 /// <summary>
 /// Contains a list of bank transactions. It is rendered as a csv file.
 /// </summary>
-public class TransactionsDocument
+public class StatementDocument : Collection<BankTransaction>
 {
-	public List<BankTransaction> Transactions { get; } = [];
-
-	public static Task<TransactionsDocument> LoadFromFileAsync(string filePath)
+	public static async Task<StatementDocument> LoadFromFileAsync(string filePath)
 	{
 		ArgumentException.ThrowIfNullOrWhiteSpace(filePath);
 
 		try
 		{
 			using StreamReader streamReader = File.OpenText(filePath);
-			return LoadInternalAsync(streamReader);
+			return await LoadInternalAsync(streamReader);
 		}
 		catch (DocumentLoadException)
 		{
@@ -28,14 +27,14 @@ public class TransactionsDocument
 		}
 	}
 
-	public static Task<TransactionsDocument> LoadAsync(string csv)
+	public static async Task<StatementDocument> LoadAsync(string csv)
 	{
 		ArgumentException.ThrowIfNullOrWhiteSpace(csv);
 
 		try
 		{
 			using StringReader stringReader = new(csv);
-			return LoadInternalAsync(stringReader);
+			return await LoadInternalAsync(stringReader);
 		}
 		catch (DocumentLoadException)
 		{
@@ -47,14 +46,14 @@ public class TransactionsDocument
 		}
 	}
 
-	public static Task<TransactionsDocument> LoadAsync(Stream stream)
+	public static async Task<StatementDocument> LoadAsync(Stream stream)
 	{
 		ArgumentNullException.ThrowIfNull(stream);
 
 		try
 		{
 			using StreamReader streamReader = new(stream);
-			return LoadInternalAsync(streamReader);
+			return await LoadInternalAsync(streamReader);
 		}
 		catch (DocumentLoadException)
 		{
@@ -66,14 +65,14 @@ public class TransactionsDocument
 		}
 	}
 
-	public static Task<TransactionsDocument> LoadAsync(FileInfo fileInfo)
+	public static async Task<StatementDocument> LoadAsync(FileInfo fileInfo)
 	{
 		ArgumentNullException.ThrowIfNull(fileInfo);
 
 		try
 		{
 			using StreamReader streamReader = fileInfo.OpenText();
-			return LoadInternalAsync(streamReader);
+			return await LoadInternalAsync(streamReader);
 		}
 		catch (DocumentLoadException)
 		{
@@ -85,28 +84,28 @@ public class TransactionsDocument
 		}
 	}
 
-	public static Task<TransactionsDocument> LoadAsync(StreamReader streamReader)
+	public static Task<StatementDocument> LoadAsync(StreamReader streamReader)
 	{
 		ArgumentNullException.ThrowIfNull(streamReader);
 
 		return LoadInternalAsync(streamReader);
 	}
 
-	public static Task<TransactionsDocument> LoadAsync(TextReader textReader)
+	public static Task<StatementDocument> LoadAsync(TextReader textReader)
 	{
 		ArgumentNullException.ThrowIfNull(textReader);
 
 		return LoadInternalAsync(textReader);
 	}
 
-	private static async Task<TransactionsDocument> LoadInternalAsync(TextReader textReader)
+	private static async Task<StatementDocument> LoadInternalAsync(TextReader textReader)
 	{
-		TransactionsCsvDocument transactionsCsvDocument = new(textReader);
-		TransactionsDocument transactionsDocument = new();
+		CsvStatementDocument csvStatementDocument = new(textReader);
+		StatementDocument statementDocument = [];
 
-		await foreach (BankTransaction bankTransaction in transactionsCsvDocument.ReadTransactions())
-			transactionsDocument.Transactions.Add(bankTransaction);
+		await foreach (BankTransaction bankTransaction in csvStatementDocument.ReadTransactions())
+			statementDocument.Add(bankTransaction);
 
-		return transactionsDocument;
+		return statementDocument;
 	}
 }
