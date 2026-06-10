@@ -42,12 +42,12 @@ The downloaded file should have the following header line:
 
 ### Step 2 - Parse the Exported Document
 
-The `TransactionsDocument` class provides several methods to parse and load a CSV file, to accommodate different input sources. Here it is one of them:
+The `StatementDocument` class provides several methods to parse and load a CSV file, to accommodate different input sources. Here it is one of them:
 
 **From a file path:**
 
 ```csharp
-StatementDocument document = StatementDocument.LoadFile("statement.csv");
+StatementDocument document = await StatementDocument.LoadFromFileAsync("statement.csv");
 
 foreach (BankTransaction transaction in document)
 {
@@ -72,9 +72,9 @@ foreach (BankTransaction transaction in document)
 
 ## Demo Project
 
-The repository includes a sample CLI project in `sources/Fintown.Toolkit.Demo` that demonstrates:
+The repository includes a sample CLI project in `sources/Revolut.Toolkit.Demo` that demonstrates:
 
-- reading `transactions.csv`
+- reading `statement.csv`
 - printing parsed data.
 
 You can use this project as a reference implementation for your own importer/exporter tools.
