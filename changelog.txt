@@ -1,6 +1,11 @@
 Revolut Toolkit
 ================================================================================
 
+v1.2.0
+--------------------------------------------------------------------------------
+[new   ] Exposed the KnownValues property for all value objects.
+
+
 v1.1.0
 --------------------------------------------------------------------------------
 [change] Renamed TransactionsDocument to StatementDocument.
