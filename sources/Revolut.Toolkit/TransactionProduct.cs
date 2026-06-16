@@ -8,11 +8,11 @@ public sealed record class TransactionProduct
 	public static readonly TransactionProduct Current = new("Current");
 	public static readonly TransactionProduct Deposit = new("Deposit");
 
-	private static readonly Dictionary<string, TransactionProduct> KnownValues = new(StringComparer.OrdinalIgnoreCase)
-	{
-		[Current.Value] = Current,
-		[Deposit.Value] = Deposit
-	};
+	public static readonly IReadOnlyCollection<TransactionProduct> KnownValues =
+	[
+		Current,
+		Deposit
+	];
 
 	public string Value { get; }
 

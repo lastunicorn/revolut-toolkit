@@ -9,12 +9,12 @@ public sealed record class TransactionType
 	public static readonly TransactionType Transfer = new("Transfer");
 	public static readonly TransactionType Deposit = new("Deposit");
 
-	private static readonly Dictionary<string, TransactionType> KnownValues = new(StringComparer.OrdinalIgnoreCase)
-	{
-		[Interest.Value] = Interest,
-		[Transfer.Value] = Transfer,
-		[Deposit.Value] = Deposit
-	};
+	public static readonly IReadOnlyCollection<TransactionType> KnownValues =
+	[
+		Interest,
+		Transfer,
+		Deposit
+	];
 
 	public string Value { get; }
 

@@ -7,10 +7,10 @@ public sealed record class TransactionState
 {
 	public static readonly TransactionState Completed = new("COMPLETED");
 
-	private static readonly Dictionary<string, TransactionState> KnownValues = new(StringComparer.OrdinalIgnoreCase)
-	{
-		[Completed.Value] = Completed
-	};
+	public static readonly IReadOnlyCollection<TransactionState> KnownValues =
+	[
+		Completed
+	];
 
 	public string Value { get; }
 
