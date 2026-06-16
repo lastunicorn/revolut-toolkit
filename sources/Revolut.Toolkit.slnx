@@ -1,8 +1,0 @@
-<Solution>
-  <Folder Name="/Common/">
-    <File Path="Directory.Build.props" />
-  </Folder>
-  <Project Path="Revolut.Toolkit.Demo/Revolut.Toolkit.Demo.csproj" />
-  <Project Path="Revolut.Toolkit.Tests\Revolut.Toolkit.Tests.csproj" />
-  <Project Path="Revolut.Toolkit\Revolut.Toolkit.csproj" />
-</Solution>

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="sources/Revolut.Toolkit.Demo/Revolut.Toolkit.Demo.csproj" />
+  <Project Path="sources/Revolut.Toolkit.Tests/Revolut.Toolkit.Tests.csproj" />
+  <Project Path="sources/Revolut.Toolkit/Revolut.Toolkit.csproj" />
+</Solution>
